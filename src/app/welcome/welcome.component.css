@@ -1,0 +1,116 @@
+/* Contenedor principal */
+.welcome-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHNtYmhyYm05YTh2MzBsOW9rdnl6ajkzZnIxN3phMGl5cGVqc3lvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVu9zDhWpBVKw8Fi7k/giphy.gif');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
+}
+
+/* Barra superior con logo y botón */
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 200px;
+}
+
+.logo-nombres {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-suda {
+  width: 200px;
+  height: auto;
+}
+
+.user-names p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffffcc;
+}
+
+/* Botón en la parte superior derecha */
+.top-button button {
+  background-color: #1b263b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.top-button button:hover {
+  background-color: #415a77;
+}
+
+/* Contenido central */
+.welcome-box {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+  justify-content: space-between;
+  gap: -20px;
+  padding: 30px;
+}
+
+.logo-container.left-logo,
+.logo-container.right-logo {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.logo-container.left-logo {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: px;
+}
+
+.logo-container.right-logo {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+/* Estilo unificado para los botones */
+.action-button {
+  background-color: #1b263b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  margin: 10px 0;
+}
+
+.action-button:hover {
+  background-color: #415a77;
+}

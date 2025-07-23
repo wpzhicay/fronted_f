@@ -1,0 +1,194 @@
+/* Fondo general de la pantalla */
+.register-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHNtYmhyYm05YTh2MzBsOW9rdnl6ajkzZnIxN3phMGl5cGVqc3lvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVu9zDhWpBVKw8Fi7k/giphy.gif');
+  background-size: cover;
+  background-position: center;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  padding: 60px 20px;
+  overflow-y: auto;
+}
+
+/* Contenedor del formulario más grande */
+.register-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Contenedor de imagen redonda */
+.upload-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 30px auto;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  font-size: 48px;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+  animation: fadeInCircle 0.8s ease-out;
+}
+
+.upload-circle:hover {
+  transform: scale(1.05);
+}
+
+.upload-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInCircle {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Título del formulario */
+.register-form h2 {
+  margin-bottom: 25px;
+  font-size: 2.2rem;
+}
+
+/* Campos del formulario */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1em;
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Mensajes de validación */
+small {
+  color: #ffaaaa;
+  font-size: 0.9em;
+}
+
+/* Contraseñas con ícono */
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.password-wrapper input {
+  flex: 1;
+}
+
+.password-wrapper button {
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón de enviar */
+.register-form button[type="submit"] {
+  display: block;
+  margin: 30px auto 10px auto;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border-radius: 12px;
+  padding: 14px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.register-form button[type="submit"]:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Enlace login */
+.login-link {
+  margin-top: 20px;
+  font-size: 0.95em;
+}
+
+.login-link a {
+  color: #00c9a7;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 6px;
+  transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  color: #00f5d4;
+}
+.form-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.form-column {
+  flex: 1;
+  min-width: 280px;
+}
+

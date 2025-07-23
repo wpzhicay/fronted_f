@@ -1,0 +1,159 @@
+<div class="dashboard-wrapper">
+  <div class="glass-panel">
+    <!-- Información del usuario en la parte superior -->
+    <div class="user-header" *ngIf="userData">
+      <img [src]="userData.photo" alt="Foto de perfil" class="profile-photo" />
+      <div class="user-info">
+        <p class="user-name">{{ userData.name }}</p>
+        <p class="user-alias">ID: {{ userData.alias }}</p>
+      </div>
+    </div>
+
+    <h1>📊 Panel de Monitoreo de Energía</h1>
+
+    <div class="button-group">
+      <button (click)="setSection('info')">👤 Info Personal</button>
+      <button (click)="setSection('equipo')">🔧 Registrar Equipo</button>
+      <button (click)="setSection('datos')">📦 Datos Almacenados</button>
+      <button (click)="setSection('alertas')">🚨 Alertas</button>
+      <button (click)="generateReport()">📁 Generar Informe</button>
+    </div>
+
+    <!-- Botón de salir independiente -->
+    <div class="logout-container">
+      <button class="logout-btn" (click)="logout()">⛔ Salir</button>
+    </div>
+
+   <div *ngIf="activeSection === 'info'">
+  <h2>Información del Usuario</h2>
+
+  <!-- Vista solo lectura -->
+  <div *ngIf="!isEditing && userData" class="info-columns">
+    <div class="info-column">
+      <img [src]="userData.photo" alt="Foto de perfil" class="profile-photo" />
+      <p><strong>Nombre:</strong> {{ userData.name }}</p>
+      <p><strong>Email:</strong> {{ userData.email }}</p>
+      <p><strong>ID:</strong> {{ userData.alias }}</p>
+      <p><strong>Teléfono:</strong> {{ userData.phone }}</p>
+    </div>
+
+    <div class="info-column">
+      <p><strong>País:</strong> {{ userData.country }}</p>
+      <p><strong>Provincia:</strong> {{ userData.province }}</p>
+      <p><strong>Ciudad:</strong> {{ userData.city }}</p>
+      <p><strong>Dirección:</strong> {{ userData.address }}</p>
+    </div>
+  </div>
+
+  <button *ngIf="!isEditing && userData" (click)="toggleEdit()">✏️ Editar Información</button>
+
+  <!-- Formulario de edición -->
+  <form *ngIf="isEditing" [formGroup]="editForm" (ngSubmit)="guardarCambios()" class="edit-form info-columns">
+    <div class="info-column">
+      <label>Nombre:</label>
+      <input type="text" formControlName="name" />
+
+      <label>Email:</label>
+      <input type="email" formControlName="email" />
+
+      <label>ALIAS:</label>
+      <input type="text" formControlName="alias" />
+
+      <label>Teléfono:</label>
+      <input type="text" formControlName="phone" />
+    </div>
+
+    <div class="info-column">
+      <label>País:</label>
+      <input type="text" formControlName="country" />
+
+      <label>Provincia:</label>
+      <input type="text" formControlName="province" />
+
+      <label>Ciudad:</label>
+      <input type="text" formControlName="city" />
+
+      <label>Dirección:</label>
+      <input type="text" formControlName="address" />
+    </div>
+
+    <div class="edit-buttons">
+      <button type="submit">💾 Guardar Cambios</button>
+      <button type="button" (click)="toggleEdit()">❌ Cancelar</button>
+    </div>
+  </form>
+</div>
+
+
+    <!-- Sección Registrar Equipo -->
+    <div *ngIf="activeSection === 'equipo'">
+      <h2>Registrar Microgenerador</h2>
+      <form (ngSubmit)="registrarEquipo()" #equipoForm="ngForm" novalidate>
+        <label>Nombre del equipo:</label>
+        <input
+          type="text"
+          name="nombre"
+          [(ngModel)]="equipo.nombre"
+          required
+          #nombre="ngModel"
+        />
+        <div *ngIf="nombre.invalid && nombre.touched" class="error">
+          El nombre es obligatorio.
+        </div>
+
+        <label>Ubicación:</label>
+        <input
+          type="text"
+          name="ubicacion"
+          [(ngModel)]="equipo.ubicacion"
+          required
+          #ubicacion="ngModel"
+        />
+        <div *ngIf="ubicacion.invalid && ubicacion.touched" class="error">
+          La ubicación es obligatoria.
+        </div>
+
+        <!-- Imagen fija -->
+        <div class="imagen-fija-container">
+          <p>Imagen del Microgenerador:</p>
+          <img src="assets/micro.jpg" alt="Microgenerador" class="imagen-fija" />
+        </div>
+
+        <button type="submit" [disabled]="equipoForm.invalid">Registrar</button>
+      </form>
+
+      <!-- Lista de equipos registrados -->
+      <div *ngIf="equipos.length > 0" class="lista-equipos">
+        <h3>Equipos Registrados</h3>
+        <ul>
+          <li *ngFor="let eq of equipos" class="equipo-item">
+            <strong>{{ eq.nombre }}</strong> - {{ eq.ubicacion }}
+            <button
+              (click)="eliminarEquipo(eq.id)"
+              title="Eliminar equipo"
+              class="btn-eliminar"
+            >
+              ❌
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sección Datos Almacenados -->
+    <div *ngIf="activeSection === 'datos'">
+      <h2>Datos Almacenados</h2>
+      <p>Energía Total: 300 kWh</p>
+      <p>Fecha Última Lectura: 18/07/2025</p>
+    </div>
+
+    <!-- Sección Alertas -->
+    <div *ngIf="activeSection === 'alertas'">
+      <h2>Alertas</h2>
+      <ul>
+        <li>🔴 Temperatura elevada - 17/07/2025</li>
+        <li>🟠 Mantenimiento recomendado - 15/07/2025</li>
+      </ul>
+    </div>
+  </div>
+</div>
