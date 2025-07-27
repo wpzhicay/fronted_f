@@ -1,36 +1,38 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private api: ApiService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', Validators.required],
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      console.log('Login enviado:', email, password);
 
-      // Aquí va la lógica para verificar credenciales (AuthService)
-
-      // Redirección al Dashboard
-      this.router.navigate(['/dashboard']);
+      this.api.login({
+        email: email ?? '',
+        password: password ?? '',
+      }).subscribe({
+        next: (res) => console.log('Login exitoso:', res),
+        error: (err) => console.error('Error en login:', err),
+      });
     } else {
-      this.loginForm.markAllAsTouched();
+      console.warn('Formulario inválido');
     }
   }
 }

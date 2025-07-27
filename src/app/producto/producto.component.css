@@ -1,0 +1,84 @@
+.producto-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHNtYmhyYm05YTh2MzBsOW9rdnl6ajkzZnIxN3phMGl5cGVqc3lvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVu9zDhWpBVKw8Fi7k/giphy.gif');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.user-names p {
+  margin: 400;
+  font-size: 14px;
+  color: #ffffffcc;
+}
+
+.top-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-suda-large {
+  width: 120px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: contain;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  margin-bottom: 10px;
+}
+
+
+.welcome-box.centered-content {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.logo-container {
+  flex: 1 1 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+}
+.dashboard-title {
+  text-align: center;
+  width: 100%;
+  margin-top: 70px;
+}
+
+.dashboard-title p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffffee;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  margin: 100;
+}
+.dashboard-title p {
+  animation: fadeInText 1s ease-out;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

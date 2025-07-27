@@ -3,8 +3,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component'; 
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductoComponent } from './producto/producto.component';
 
 export const routes: Routes = [
+   { path: 'producto', component: ProductoComponent },
   { path: '', component: WelcomeComponent }, // Página principal
   { path: 'login', component: LoginComponent },
   { path: 'register', loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent) },
