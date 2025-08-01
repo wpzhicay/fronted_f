@@ -1,25 +1,22 @@
-// src/app/services/api.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://backend-f-l86z.onrender.com';
+  private baseUrl = 'http://localhost:3000'; // Asegúrate de que coincida con tu backend
 
   constructor(private http: HttpClient) {}
 
-  login(data: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/login`, data, {
-      withCredentials: true,
-    });
+  // Método para test de conexión
+  getHello(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
   }
 
-  getProfile(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/auth/profile`, {
-      withCredentials: true,
-    });
+  // ✅ Método de login (POST con email y contraseña)
+  login(credentials: { email: string; password: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/auth/login`, credentials);
   }
 }

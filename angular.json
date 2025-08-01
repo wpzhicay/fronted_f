@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "projects": {
-    "frontend": {
+    "frontend_f": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend",
+            "outputPath": "dist/frontend_f",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -55,19 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "frontend:build"
+            "buildTarget": "frontend_f:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "frontend:build:production"
+              "buildTarget": "frontend_f:build:production"
             },
             "development": {
-              "buildTarget": "frontend:build:development"
+              "buildTarget": "frontend_f:build:development"
             }
           }
         }
       }
     }
   }
-
 }
