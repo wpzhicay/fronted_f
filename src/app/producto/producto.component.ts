@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'; // 👈 Importa esto
 
 @Component({
   selector: 'app-producto',
-  imports: [],
+  standalone: true, // 👈 Asegúrate de que esté marcado como standalone
+  imports: [RouterModule], // 👈 Agrega RouterModule aquí
   templateUrl: './producto.component.html',
-  styleUrl: './producto.component.css'
+  styleUrls: ['./producto.component.css']
 })
-export class ProductoComponent {
-
-}
+export class ProductoComponent {}

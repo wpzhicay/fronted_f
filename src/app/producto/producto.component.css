@@ -28,12 +28,12 @@
 
 .top-button {
   display: flex;
-  align-items: center;
+  align-items: 40px;
   gap: 15px;
 }
 
 .logo-suda-large {
-  width: 120px;
+  width: 250px;
   height: auto;
   border-radius: 20px;
   object-fit: contain;
@@ -42,18 +42,22 @@
 }
 
 
-.welcome-box.centered-content {
-  margin: auto;
+.producto-wrapper {
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 1s ease-out;
+  flex-direction: column;
+  justify-content: center; /* centra verticalmente */
+  align-items: center;     /* centra horizontalmente */
+  padding: 20px;
+  background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHNtYmhyYm05YTh2MzBsOW9rdnl6ajkzZnIxN3phMGl5cGVqc3lvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVu9zDhWpBVKw8Fi7k/giphy.gif');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
 }
+
 
 .logo-container {
   flex: 1 1 50%;
@@ -62,13 +66,13 @@
   padding: 20px;
 }
 .dashboard-title {
-  text-align: center;
+  text-align: 200px;
   width: 100%;
-  margin-top: 70px;
+  margin-top: 200px;
 }
 
 .dashboard-title p {
-  font-size: 28px;
+  font-size: 50px;
   font-weight: bold;
   color: #ffffffee;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
@@ -84,7 +88,7 @@
 }
 .historia-box {
   margin-top: 40px;
-  padding: 30px;
+  padding: 70px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   border-radius: 20px;
@@ -98,7 +102,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 30px;
+  gap: 50px;
 }
 
 .historia-text {
@@ -108,23 +112,23 @@
 }
 
 .historia-text h2 {
-  font-size: 26px;
+  font-size: 40px;
   margin-bottom: 15px;
   color: #ffffffee;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .historia-text p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   margin-bottom: 12px;
   color: #eeeeee;
 }
 
 .historia-image img {
-  width: 280px;
-  max-width: 100%;
-  height: auto;
+  width: 400px;
+  max-width: 200%;
+  height: 500px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -133,4 +137,74 @@
 .historia-image img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+.styled-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #ffffff55;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.styled-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.4);
+}
+.titulo-historia {
+  text-align: 300;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ffffffee;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.destacado {
+  color: #ffd700;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.contenedores-inferiores {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  flex: 0 0 500px; /* ancho fijo más pequeño */
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo-container img {
+  width: 100%;
+  max-width: 160px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.titulo-izquierda {
+  position: absolute;
+  top: 30px;     /* distancia desde el borde superior */
+  left: 1000px;    /* distancia desde el borde izquierdo */
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  z-index: 10;
 }
