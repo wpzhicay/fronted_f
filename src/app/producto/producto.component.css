@@ -82,3 +82,55 @@
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.historia-box {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  animation: fadeInUp 1s ease-out;
+}
+
+.historia-content-with-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.historia-text {
+  flex: 1 1 400px;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.historia-text h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #ffffffee;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.historia-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #eeeeee;
+}
+
+.historia-image img {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.historia-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}

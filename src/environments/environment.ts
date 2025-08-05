@@ -1,4 +1,6 @@
+
+// environment.prod.ts (producción en Vercel)
 export const environment = {
-  production: false,
-  apiUrl: 'https://backend-f-l86z.onrender.com' 
+  production: true,
+  apiUrl: 'ttps://backend-f-l86z.onrender.com' // o el dominio público de tu backend
 };

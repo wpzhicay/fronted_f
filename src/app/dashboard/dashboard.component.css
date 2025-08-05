@@ -423,3 +423,42 @@ input[type="text"] {
   padding: 40px;
   overflow-y: auto;
 }
+.dashboard-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHNtYmhyYm05YTh2MzBsOW9rdnl6ajkzZnIxN3phMGl5cGVqc3lvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVu9zDhWpBVKw8Fi7k/giphy.gif');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
+}
+.dashboard-btn {
+  background-color: #1b263b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.dashboard-btn:hover {
+  background-color: #415a77;
+}
+.mensaje-exito {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e6ffe6;
+  border: 1px solid #4caf50;
+  color: #2e7d32;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}

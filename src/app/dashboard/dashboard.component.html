@@ -17,6 +17,10 @@
       <button (click)="setSection('datos')">📦 Datos Almacenados</button>
       <button (click)="setSection('alertas')">🚨 Alertas</button>
       <button (click)="generateReport()">📁 Generar Informe</button>
+      <div *ngIf="reporteGenerado" class="mensaje-exito">
+  ✅ Informe generado con éxito
+</div>
+
     </div>
 
     <!-- Botón de salir independiente -->
@@ -45,7 +49,10 @@
     </div>
   </div>
 
-  <button *ngIf="!isEditing && userData" (click)="toggleEdit()">✏️ Editar Información</button>
+  <button *ngIf="!isEditing && userData" (click)="toggleEdit()" class="dashboard-btn">
+  ✏️ Editar Información
+</button>
+
 
   <!-- Formulario de edición -->
   <form *ngIf="isEditing" [formGroup]="editForm" (ngSubmit)="guardarCambios()" class="edit-form info-columns">

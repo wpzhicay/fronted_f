@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:3000'; // Asegúrate de que coincida con tu backend
+ private baseUrl = 'https://backend-f-l86z.onrender.com';
 
   constructor(private http: HttpClient) {}
 

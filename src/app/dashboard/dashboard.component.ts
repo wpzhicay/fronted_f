@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +18,8 @@ export class DashboardComponent {
   editForm!: FormGroup;
   isEditing = false;
   activeSection = 'info';
+  reporteGenerado = false;
+
   equipo = {
     nombre: '',
     ubicacion: ''
@@ -86,22 +90,48 @@ export class DashboardComponent {
   }
 
   generateReport() {
-    const user = this.userData;
-    const report = `
-      📄 INFORME DE USUARIO
+    const userSheet = [
+      ['Nombre', this.userData.name],
+      ['Email', this.userData.email],
+      ['ID', this.userData.alias],
+      ['Teléfono', this.userData.phone],
+      ['País', this.userData.country],
+      ['Provincia', this.userData.province],
+      ['Ciudad', this.userData.city],
+      ['Dirección', this.userData.address],
+    ];
 
-      Nombre: ${user.name}
-      ID: ${user.alias}
-      Email: ${user.email}
-      Teléfono: ${user.phone}
-      País: ${user.country}
-      Provincia: ${user.province}
-      Ciudad: ${user.city}
-      Dirección: ${user.address}
+    const equiposSheet = this.equipos.map(eq => ({
+      Nombre: eq.nombre,
+      Ubicación: eq.ubicacion || 'No especificada'
+    }));
 
-      Fecha de generación: ${new Date().toLocaleDateString()}
-    `;
-    alert(report);
+    const datosSheet = [
+      ['Energía Total', '300 kWh'],
+      ['Fecha Última Lectura', '18/07/2025']
+    ];
+
+    const alertasSheet = [
+      ['🔴 Temperatura elevada', '17/07/2025'],
+      ['🟠 Mantenimiento recomendado', '15/07/2025']
+    ];
+
+    const wb = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(userSheet), 'Usuario');
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(equiposSheet), 'Equipos');
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(datosSheet), 'Datos');
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(alertasSheet), 'Alertas');
+
+    const fecha = new Date().toISOString().split('T')[0];
+    const nombreArchivo = `informe_energia_${this.userData.alias}_${fecha}.xlsx`;
+
+    const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+    saveAs(blob, nombreArchivo);
+
+    this.reporteGenerado = true;
+    setTimeout(() => this.reporteGenerado = false, 3000);
   }
 
   registrarEquipo() {
